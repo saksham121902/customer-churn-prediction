@@ -1,0 +1,12 @@
+import pickle
+from xgboost import XGBClassifier
+
+# Train the model
+xgb = XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42)
+xgb.fit(X_train, y_train)
+
+# Save the trained model
+with open("churn_model.pkl", "wb") as f:
+    pickle.dump(xgb, f)
+
+print("Model saved as churn_model.pkl")
