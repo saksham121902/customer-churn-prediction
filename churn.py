@@ -99,3 +99,13 @@ plt.figure(figsize=(10,6))
 sns.barplot(x=feat_importance[:10], y=feat_importance.index[:10])
 plt.title("Top 10 Features Driving Churn")
 plt.show()
+
+# ===============================
+# 8. Save Trained Model
+# ===============================
+import pickle
+
+with open("churn_model.pkl", "wb") as f:
+    pickle.dump(model, f)
+
+print("Model saved as churn_model.pkl")
